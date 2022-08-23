@@ -10,6 +10,7 @@ namespace User_Registrations_Problem
         {
             Console.WriteLine("Welcome_To_User_Registration_Problem");
             FirstNameVal();
+            LastNameVal();
         }
         public static void FirstNameVal()
         {
@@ -21,7 +22,17 @@ namespace User_Registrations_Problem
                 Console.WriteLine("Name is Valid : " + first_name);
             else
                 Console.WriteLine("Invalid FirstName");
-
+        }
+        public static void LastNameVal()
+        {
+            Regex rg = new Regex(REGEX_PATTERN);
+            Console.Write("Enter Last Name: ");
+            string last_name = Console.ReadLine();
+            bool validate = rg.IsMatch(last_name);
+            if (validate)
+                Console.WriteLine("Name is Valid : " + last_name);
+            else
+                Console.WriteLine("Invalid LastName");
         }
     }
 }
