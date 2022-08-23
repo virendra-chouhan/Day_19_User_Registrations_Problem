@@ -6,11 +6,13 @@ namespace User_Registrations_Problem
     class Program
     {
         public static string REGEX_PATTERN = "^[A-Z]{1}[a-zA-Z]{2,}";
+        public static string EMAIL_PATTERN = "^[a-zA-Z0-9]+[.(a-zA-Z0-9)]*(\\@)[a-zA-Z0-9]+(\\.)[a-z]{2,3}[.(a-z)]*$";
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome_To_User_Registration_Problem");
             FirstNameVal();
             LastNameVal();
+            EmailValidation();
         }
         public static void FirstNameVal()
         {
@@ -33,6 +35,17 @@ namespace User_Registrations_Problem
                 Console.WriteLine("Name is Valid : " + last_name);
             else
                 Console.WriteLine("Invalid LastName");
+        }
+        public static void EmailValidation()
+        {
+            Regex rg = new Regex(EMAIL_PATTERN);
+            Console.Write("Enter E-mail: ");
+            string email = Console.ReadLine();
+            bool validate = rg.IsMatch(email);
+            if (validate)
+                Console.WriteLine("Email is valid : " + email);
+            else
+                Console.WriteLine("Invalid E-mail.");
         }
     }
 }
